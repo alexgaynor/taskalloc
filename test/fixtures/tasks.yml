@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyString
+  priority: 1
+  category: MyString
+  cost: 1
+  start_location: MyString
+  task_location: MyString
+  end_location: MyString
+  estimated_time: 1
+  total_time: 1
+  due_date: 2013-11-27 01:54:53
+  started: false
+  completed: false
+  passes: 
+  karma_value: 1
+  accepted_time: 2013-11-27 01:54:53
+  completed_time: 2013-11-27 01:54:53
+  group_id: 1
+  creator_id: 1
+  owner_id: 1
+  flaker_id: 1
+
+two:
+  name: MyString
+  description: MyString
+  priority: 1
+  category: MyString
+  cost: 1
+  start_location: MyString
+  task_location: MyString
+  end_location: MyString
+  estimated_time: 1
+  total_time: 1
+  due_date: 2013-11-27 01:54:53
+  started: false
+  completed: false
+  passes: 
+  karma_value: 1
+  accepted_time: 2013-11-27 01:54:53
+  completed_time: 2013-11-27 01:54:53
+  group_id: 1
+  creator_id: 1
+  owner_id: 1
+  flaker_id: 1
