@@ -9,7 +9,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :username
       t.string :firstname
       t.string :lastname
-      t.integer :phone_num
+      t.string :phone_num
       t.integer :tot_karma
       t.integer :tot_flakes
 

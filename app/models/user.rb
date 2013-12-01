@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   # set the has_and_belongs_to_many relationship with Groups
   has_and_belongs_to_many :groups
-
+  has_many :creatorgroups, class_name: "Group", foreign_key: "creator_id"
 
   # set the has_many relationships of Users to Tasks
   has_many :ownertasks, class_name: "Task", foreign_key: "owner_id"

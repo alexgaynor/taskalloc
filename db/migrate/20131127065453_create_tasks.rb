@@ -14,7 +14,7 @@ class CreateTasks < ActiveRecord::Migration
       t.datetime :due_date
       t.boolean :started
       t.boolean :completed
-      t.int :passes
+      t.integer :passes
       t.integer :karma_value
       t.datetime :accepted_time
       t.datetime :completed_time

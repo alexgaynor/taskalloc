@@ -23,56 +23,102 @@ groups_arr = []
 users_arr = []
 tasks_arr = []
 
-3.times do
-        groups_arr << Group.create(
-                group_name: Faker::Company.name,
-                group_desc: Faker::Lorem.sentences(1).join(" "),
-                homebase_location: Faker::Address.street_address,
-                address_street: Faker::Address.street_address,
-                address_zipcode: Faker::Address.zip,
-                address_state: Faker::Address.state_abbr,
-                group_type: group_types[rand(0..4)]
-        )
-end
+roomies = Group.create(
+        name: "BFF Roomies",
+        description: Faker::Lorem.sentences(1).join(" "),
+        address_street: "10 East 21st Street",
+        address_zipcode: "10010",
+        address_state: "NY",
+        group_type: "roommates"
 
-12.times do
-        user = User.create(
-                email: Faker::Internet.email,
-                password: "password",
-                username: Faker::Internet.user_name,
-                firstname: Faker::Name.first_name,
-                lastname: Faker::Name.last_name,
-                nickname: "nickname",
-                role: roles[rand(0..5)],
-                phone_num: Faker::PhoneNumber.phone_number,
-                prof_pic: photos[rand(0..2)]
-        )
-        user.groups << groups_arr.sample
-        users_arr << user
-end
 
-50.times do
-        task = Task.create(
-                name: Faker::Lorem.sentence(4),
-                desc: Faker::Lorem.sentences(1).join(" "),
-                start_location: Faker::Address.street_address,
-                destination_location: Faker::Address.street_address,
-                end_location: Faker::Address.street_address,
-                estimated_time: 123,
-                total_time: 234,
-                started: boolean[rand(0..1)],
-                completed: boolean[rand(0..1)],
-                creator_id: users_arr.sample.id,
-                owner_id: users_arr.sample.id,
-                passes: rand(1..2),
-                group_id: groups_arr.sample.id,
-                priority: priorities[rand(0..2)],        
-                category: categories[rand(0..3)],
-                karma_value: rand(0..100),
-                accepted_at_time: 123456,
-                completed_at_time: 456789,
-                cost: 5,
-                flaker_id: users_arr.sample.id,
+)
+
+alex = User.create(
+        email: "agaynor72@gmail.com",
+        password: "password",
+        username: "g_Force",
+        firstname: "Alex",
+        lastname: "Gaynor",
+        phone_num: "2039623044"
+)
+john = User.create(
+        email: "phoenixz720@gmail.com",
+        password: "password",
+        username: "shadymilkman",
+        firstname: "John",
+        lastname: "Wilsterman",
+        phone_num: Faker::PhoneNumber.phone_number
+)
+sunmi = User.create(
+         email: "ohsun14@gmail.com",
+         password: "password",
+         username: "ohsun",
+         firstname: "Sunmi",
+         lastname: "Oh",
+         phone_num:" 5165102275"
         )
-        tasks_arr << task
-end
+alex.groups << roomies
+john.groups << roomies
+sunmi.groups << roomies
+
+groceries = Task.create(
+        name: "Pick up groceries",
+        description: "Pick up milk, eggs, cheese, onions, and carrots",
+        task_location: Faker::Address.street_address,
+        end_location: roomies.address_street,
+        estimated_time: 123,
+        total_time: 234,
+        started: true,
+        completed: false,
+        creator_id: sunmi.id,
+        owner_id: alex.id,
+        passes: 0,
+        group_id: roomies.id,
+        priority: priorities[rand(0..2)],        
+        category: categories[rand(0..3)],
+        karma_value: 40,
+        accepted_time: 123456,
+        completed_time: 456789,
+        cost: 50
+)
+clean = Task.create(
+        name: "Clean the apartment",
+        description: "Clean the kitchen and tv room",
+        task_location: roomies.address_street,
+        end_location: roomies.address_street,
+        estimated_time: 123,
+        total_time: 234,
+        started: true,
+        completed: false,
+        creator_id: alex.id,
+        owner_id: john.id,
+        passes: 0,
+        group_id: roomies.id,
+        priority: priorities[rand(0..2)],        
+        category: categories[rand(0..3)],
+        karma_value: 60,
+        accepted_time: 123456,
+        completed_time: 456789,
+        cost: 80
+)
+pickup_supplies = Task.create(
+        name: "Clean the apartment",
+        description: "Clean the kitchen and tv room",
+        task_location: roomies.address_street,
+        end_location: roomies.address_street,
+        estimated_time: 123,
+        total_time: 234,
+        started: true,
+        completed: false,
+        creator_id: alex.id,
+        owner_id: john.id,
+        passes: 0,
+        group_id: roomies.id,
+        priority: priorities[rand(0..2)],        
+        category: categories[rand(0..3)],
+        karma_value: 60,
+        accepted_time: 123456,
+        completed_time: 456789,
+        cost: 80
+)
