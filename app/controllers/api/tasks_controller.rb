@@ -1,5 +1,6 @@
 class API::TasksController < ApplicationController
-
+	# UNCOMMENT BELOW WHEN WANT TO MAKE JSON API SECURE
+	# before_filter :authenticate_user!
 	def index
 		render json: Task.all
 	end
