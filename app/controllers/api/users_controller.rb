@@ -5,6 +5,11 @@ class API::UsersController < ApplicationController
 		render json: User.all
 	end
 
+	def show
+		render json: User.find(params[:id])
+	end
+
+	private
 	def safe_params
 		params.require(:user).permit(:email, :encrypted_password, :username, :firstname, :lastname, :phone_num, :tot_karma, :tot_flakes)
 	end

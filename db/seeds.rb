@@ -30,9 +30,8 @@ roomies = Group.create(
         address_zipcode: "10010",
         address_state: "NY",
         group_type: "roommates"
-
-
 )
+
 
 alex = User.create(
         email: "agaynor72@gmail.com",

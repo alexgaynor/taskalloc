@@ -3,9 +3,15 @@ TaskAlloc::Application.routes.draw do
   devise_for :users
 
   namespace :api, defaults: {format: :json} do
-  	resources :tasks, only: [:index, :create, :update, :destroy]
-  	resources :groups, only: [:index, :create, :update, :destroy]
-	resources :users, only: [:index, :create, :update, :destroy]
+  	devise_scope :user do
+  		resource :session, only: [:create, :destroy]
+  	end
+
+  	resources :tasks, only: [:index, :create, :update, :destroy, :show]
+  	resources :groups, only: [:index, :create, :update, :destroy, :show] do
+  		resources :tasks, only: [:index, :show]
+  	end
+	resources :users, only: [:index, :show]
 
   end
 end
