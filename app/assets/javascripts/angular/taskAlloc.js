@@ -1,1 +1,0 @@
-var taskAlloc = angular.module('taskAlloc', ['ngResource']);

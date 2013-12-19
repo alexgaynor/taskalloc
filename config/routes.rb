@@ -11,7 +11,7 @@ TaskAlloc::Application.routes.draw do
   	resources :groups, only: [:index, :create, :update, :destroy, :show] do
   		resources :tasks, only: [:index, :show]
   	end
-	resources :users, only: [:index, :show]
+	 resources :users, only: [:index, :show]
 
   end
 end
