@@ -2,7 +2,7 @@ class API::TasksController < ApplicationController
 	# UNCOMMENT BELOW WHEN WANT TO MAKE JSON API SECURE
 	# before_filter :authenticate_user!
 	def index
-		render json: Task.all
+		render json: Task.all, status: 200
 	end
 
 	def show
@@ -27,6 +27,14 @@ class API::TasksController < ApplicationController
 	end
 
 	private
+ 
+	def check_owner
+		permission_denied if current_user != task.owner
+	end
+
+	def task
+		@task ||= Task.find(params[:id])
+	end
 
 	def group
 	  	@group ||= Group.find(params[:id])
