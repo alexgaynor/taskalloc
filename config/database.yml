@@ -51,7 +51,7 @@ test:
   pool: 5
   username: <%= ENV['PG_USERNAME'] %>
   password: <%= ENV['PG_PASSWORD'] %>
-  password:
+  host: localhost
 
 production:
   adapter: postgresql
